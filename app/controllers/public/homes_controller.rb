@@ -4,4 +4,8 @@ class Public::HomesController < ApplicationController
     @items = Item.all
   end
   
+  def about
+    
+  end
+  
 end
