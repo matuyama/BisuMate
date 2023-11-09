@@ -9,11 +9,11 @@
   Customer.create!(
     last_name: "山田#{n + 1}",
     first_name: "太郎#{n + 1}",
-    last_name_furigana: "ヤマダ#{n + 1}",
-    first_name_furigana: "太郎#{n + 1}",
+    kana_last_name: "ヤマダ#{n + 1}",
+    kana_first_name: "太郎#{n + 1}",
     postal_code: "1112222",
     address: "テスト県テスト市テスト",
-    telephone_number: "11122223333",
+    phone_numbre: "11122223333",
     email: "#{n + 1}@a",
     password: "123456",
     is_active: true
