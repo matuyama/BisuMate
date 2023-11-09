@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :customers, only: [:edit, :update] do
       get "mypage" => "customers#mypage"
       get "unsubscribe" => "customers#unsubscribe"
-      tatch "quit" => "customers#quit"
+      patch "quit" => "customers#quit"
     end
     resources :cart_items, only: [:index, :update, :destroy, :create] do
       collection do
