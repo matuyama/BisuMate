@@ -16,9 +16,9 @@ class Public::SessionsController < Devise::SessionsController
 
   def customer_state #ログイン時アクティブであるか判断をするメゾット
     customer = Customer.find_by(email: params[:customer][:email])
-    return unless customer.nil?
+    return if customer.nil?
     return unless customer.valid_password?(params[:customer][:password])
-    return unless customer.is_active?
+    return if customer.is_active?
     flash[:notice] = "退会済みです。再度ご登録ください"
     redirect_to new_customer_registration_path
   end
