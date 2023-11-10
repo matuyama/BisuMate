@@ -11,11 +11,15 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col">
       <%= form_with model: @cart_item, url: cart_items_path do |f| %>
-        
+      <div class="form-group">
+        <%= f.hidden_field :item_id, value: @item.id, class: "form-control" %>
+        <%= f.select :amount, (1..10).to_a.map{ |q| ["#{q}個", q] }, class: "form-control" %>
+        <%= f.submit "カートに入れる", class: "btn btn-success" %>
+      </div>
       <% end %>
     </div>
   </div>
