@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get "about" => "homes#about"
     resources :items, only: [:index, :show]
     resource :customers, only: [:edit, :update] do
-      get "mypage" => "customers#mypage"
+      get "mypage" => "customers#show"
       get "unsubscribe" => "customers#unsubscribe"
       patch "quit" => "customers#quit"
     end

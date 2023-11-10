@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>商品一覧</h1>
+      <% @items.each do |item| %>
+        <div class="card w-100 bg-transparent border-0">
+          <div class="card-body">
+            <div class="card-text"><%= link_to item.name,  item_path(item) %></div>
+            <div class="card-text"><%= item.description %></div>
+            <div class="card-text"><%= item.price_tax_excluded %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

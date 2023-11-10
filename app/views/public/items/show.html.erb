@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="item_box">
+        <h3><%= @item.name %></h3>
+        <p><%= @item.description %></p>
+        <div class="item_price d-flexalign-items-end">
+          <h5><strong>￥<%= @item.price_tax_including.to_s(:delimited) %></strong></h5>
+          <span class="mx-1" style="font-size; 12px">(税込)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+      <div class="form-group">
+        <%= f.hidden_field :item_id, value: @item.id, class: "form-control" %>
+        <%= f.select :amount, (1..10).to_a.map{ |q| ["#{q}個", q] }, class: "form-control" %>
+        <%= f.submit "カートに入れる", class: "btn btn-success" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

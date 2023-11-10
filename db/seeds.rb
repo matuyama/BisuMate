@@ -10,7 +10,7 @@
     last_name: "山田#{n + 1}",
     first_name: "太郎#{n + 1}",
     kana_last_name: "ヤマダ#{n + 1}",
-    kana_first_name: "太郎#{n + 1}",
+    kana_first_name: "タロウ#{n + 1}",
     postal_code: "1112222",
     address: "テスト県テスト市テスト",
     phone_numbre: "11122223333",
