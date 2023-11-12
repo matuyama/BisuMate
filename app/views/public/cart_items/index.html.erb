@@ -34,7 +34,10 @@
               <%= cart_item.item.price_tax_including %>
             </td>
             <td>
-              <%= cart_item.amount %>
+              <%= form_with model: cart_item do |f| %>
+                <%= f.select :amount, (1..10).to_a, include_blamk: cart_item.amount %>
+                <%= f.submit "変更" %>
+              <% end %>
             </td>
             <td>
               <%= cart_item.subtotal %>
