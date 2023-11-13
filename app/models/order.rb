@@ -6,5 +6,9 @@ class Order < ApplicationRecord
   has_many :customers, through: :addresses, dependent: :destroy
 
   enum payment_method: { credit_card: 0, transfer: 1}
+  
+  def deliveryTarget
+    "〒#{self.postal_code} #{self.address} \n#{self.full_name}"
+  end
 
 end
