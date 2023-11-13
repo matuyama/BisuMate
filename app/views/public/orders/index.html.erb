@@ -24,7 +24,7 @@
               <% end %>
             </td>
             <td><%= order.billing_price %></td>
-            <td></td>
+            <td><%= order.status_i18n %></td>
             <td><%= link_to "詳細を表示", order_path(order), class: "btn btn-primary" %></td>
           </tr>
         </tbidy>
