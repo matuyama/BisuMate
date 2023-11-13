@@ -6,7 +6,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-
+    
   end
 
 
