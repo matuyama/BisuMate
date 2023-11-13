@@ -9,16 +9,21 @@ Rails.application.routes.draw do
       get "unsubscribe" => "customers#unsubscribe"
       patch "quit" => "customers#quit"
     end
+
     resources :cart_items, only: [:index, :update, :destroy, :create] do
       collection do
         delete "destroy_all" => "cart_items#destroy_all"
       end
     end
-    resource :orders, only: [:new, :create, :index, :show] do
-      post "confirm" => "orders#confirm"
-      get "confirm" => "orders#new"
-      get "thanks" => "orders#thanks"
+
+    resources :orders, only: [:index, :new, :create, :show] do
+      collection do
+        post "confirm" => "orders#confirm"
+        get "confirm" => "orders#new"
+        get "thanks" => "orders#thanks"
+      end
     end
+
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 

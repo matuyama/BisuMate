@@ -6,25 +6,21 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    if params[:order].present?
-      @order = Order.new
-      @cart_items = CartItem.where(customer_id: current_customer.id)
-      @order_payment_method = params[:order][:payment_method].to_i
-      @order_postage = 800
-      @total_price = 0
-      selected_address = params[:order][:selected_address].to_i
-      if selected_address == 0
-        @order_info = Customer.find(current_customer.id)
-        @deliveryTarget = @order_info.deliveryTarget
-      elsif selected_address == 1
-        @order_info = Address.find(params[:order][:address_id])
-        @deliveryTarget = @order_info.deliveryTarget
-      elsif selected_address == 2
-        @order_info = params[:order]
-        @deliveryTarget = @order_info.deliveryTarget
-      else
-        render :new
-      end
+    @order = Order.new
+    @cart_items = CartItem.where(customer_id: current_customer.id)
+    @order_payment_method = params[:order][:payment_method].to_i
+    @order_postage = 800
+    @total_price = 0
+    selected_address = params[:order][:selected_address].to_i
+    if selected_address == 0
+      @order_info = Customer.find(current_customer.id)
+      @deliveryTarget = @order_info.deliveryTarget
+    elsif selected_address == 1
+      @order_info = Address.find(params[:order][:address_id])
+      @deliveryTarget = @order_info.deliveryTarget
+    elsif selected_address == 2
+      @order_info = params[:order]
+      @deliveryTarget = @order_info.deliveryTarget
     else
       render :new
     end
@@ -58,6 +54,11 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = Order.where(customer_id: current_customer.id)
+  end
+
+  def show
+    @order = Order.find(params[:id])
+
   end
 
 
