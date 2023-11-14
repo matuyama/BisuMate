@@ -25,7 +25,7 @@ class Public::AddressesController < ApplicationController
     if address.update(address_params)
       redirect_to addresses_path
     else
-      flash.new[:notice] = "更新に失敗しました。"
+      flash.new[:notice] = "更新に失敗しました"
     end
   end
 
