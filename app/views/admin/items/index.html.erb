@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4><strong>商品一覧</strong></h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <% @orders.each do |order| %>
+        <tbody>
+          <tr>
+            <td><%= order.id %></td>
+              <% order.order_details.each do |order_detail| %>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.item.price_tax_excluded %></td>
+            <td><%= order_detail.item.genre.name %></td>
+              <% end %>
+            <td></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
