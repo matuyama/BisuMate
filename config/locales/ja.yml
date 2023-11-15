@@ -10,6 +10,10 @@
         in_production: "製作中"
         preparing_delivery: "発送準備中"
         delivered: "発送済み"
+    item:
+      is_on_sale:
+        on_sale: "販売中"
+        sales_stop: "販売停止"
   activerecord:
   errors:
     messages:
