@@ -30,9 +30,9 @@ class Public::OrdersController < ApplicationController
     order = Order.new(order_params)
     order.customer_id = current_customer.id
     if order.save
-      order_detail = OrderDetail.new
       cart_items = CartItem.where(customer_id: current_customer.id)
       cart_items.each do |cart_item|
+        order_detail = OrderDetail.new
         order_detail.order_id = order.id
         order_detail.item_id = cart_item.item.id
         order_detail.amount = cart_item.amount

@@ -23,7 +23,7 @@
         <th>注文ステータス</th>
         <th>
           <%= form_with model: @order, url: admin_order_path(@order) do |f| %>
-            <%= f.select :status, Order.statuses.keys.map{|key| [I18n.t("enums.order.status.#{key}"), key]} %>
+            <%= f.select :status, Order.statuses.keys.map{|key| [I18n.t("enums.order.status.#{key}"), key]},{selected: @order.status} %>
             <%= f.submit "更新", class: "btn btn-success" %>
           <% end %>
         </th>
@@ -53,12 +53,12 @@
             <td><%= order_detail.subtotal %></td>
             <td>
               <%= form_with model: order_detail, url: admin_order_path(order_detail) do |f| %>
-                <%= f.select :satus, OrderDetail.statuses.keys.map{|key| [I18n.t("enums.order_detail.status.#{key}"), key]} %>
+                <%= f.select :satus, OrderDetail.statuses.keys.map{|key| [I18n.t("enums.order_detail.status.#{key}"), key]},{selected: order_detail.status} %>
                 <%= f.submit "更新", class: "btn btn-success" %>
               <% end %>
             </td>
           </tr>
-          <%= @total += order_detail.subtotal %>
+          <% @total += order_detail.subtotal %>
           <% end %>
         </tbody>
       </table>

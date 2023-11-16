@@ -47,6 +47,7 @@
             </td>
             <% @billing_price += cart_item.item.price_tax_excluded * cart_item.amount %>
           </tr>
+        <% end %>
           <tr>
             <td></td>
             <td></td>
@@ -55,7 +56,6 @@
             <td><%= @billing_price %></td>
           </tr>
         </tbody>
-        <% end %>
         </table>
     </div>
   </div>
