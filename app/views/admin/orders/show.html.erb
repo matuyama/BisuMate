@@ -52,8 +52,8 @@
             <td><%= order_detail.amount %></td>
             <td><%= order_detail.subtotal %></td>
             <td>
-              <%= form_with model: order_detail, url: admin_order_path(order_detail) do |f| %>
-                <%= f.select :satus, OrderDetail.statuses.keys.map{|key| [I18n.t("enums.order_detail.status.#{key}"), key]},{selected: order_detail.status} %>
+              <%= form_with model: order_detail, url: admin_order_order_detail_path(order_detail) do |f| %>
+                <%= f.select :status, OrderDetail.statuses.keys.map{|key| [I18n.t("enums.order_detail.status.#{key}"), key]},{selected: order_detail.status} %>
                 <%= f.submit "更新", class: "btn btn-success" %>
               <% end %>
             </td>
