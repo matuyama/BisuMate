@@ -21,12 +21,20 @@ class Admin::ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
   end
-  
+
   def edit
     @item = Item.find(params[:id])
   end
-  
-  
+
+  def update
+    item = Item.find(params[:id])
+    if item.update(item_params)
+      redirect_to admin_item_path(item)
+    else
+      flash[:notice] = "保存に失敗しました"
+      redirect_to edit_admin_item_path(item)
+    end
+  end
 
   private
 

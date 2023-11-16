@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <%= form_with model: @item, url: admin_items_path do |f| %>
+      <%= form_with model: @item, url: admin_item_path(@item) do |f| %>
       <table class="table">
         <div class="form-group">
           <tr>
