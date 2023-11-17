@@ -1,7 +1,12 @@
 class Public::ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+    @items = Item.looks((params[:search]), (params[:word]))
+    # byebug
+    if @items.empty?
+      flash.now[:notice] = "商品がありません。"
+    end
+    @genres = Genre.all
   end
 
   def show

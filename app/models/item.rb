@@ -16,6 +16,16 @@ class Item < ApplicationRecord
 
   enum is_on_sale: { on_sale:true, sales_stop: false}
 
+  def self.looks(search, word)
+    if search == "word_match"
+      @items = Item.where("name LIKE?","%#{word}%")
+    elsif search == "genre_match"
+      @items = Item.where(genre_id: word)
+    else
+      @items = Item.all
+    end
+  end
+
   def get_item_image(width,height)
     unless item_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
