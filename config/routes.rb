@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get "about" => "homes#about"
-    get "search" => "searches#search"
 
-    resources :items, only: [:index, :show] 
+    resources :items, only: [:index, :show]
     resource :customers, only: [:edit, :update] do
       get "mypage" => "customers#show"
       get "unsubscribe" => "customers#unsubscribe"

@@ -7,9 +7,6 @@
   <div class="row">
     <div class="col-4">
       <table class="table">
-        <tr>
-          <th>ジャンル検索</th>
-        </tr>
         <% @genres.each do |genre| %>
           <tr>
             <th><%= link_to genre.name, items_path(search: "genre_match", word: genre.id) %></th>
@@ -19,25 +16,24 @@
     </div>
     <div class="col-8">
       <div class="row row-cols-4">
-      <% if flash[:notice] %>
-        <div class="alert alert-info">
-          <%= flash[:notice] %>
-        </div>
-      <% end %>
-      <% @items.each do |item| %>
-        <div class="col">
-            <div class="card border-0 bg-transparent w-100">
-              <div class="card-img-top">
-                <%= link_to item_path(item) do %>
-                  <%= image_tag item.get_item_image(200,200) %>
-                <% end %>
+        <% if flash[:notice] %>
+          <div class="alert alert-info">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <% @items.each do |item| %>
+          <div class="col">
+              <div class="card border-0 bg-transparent w-100">
+                <div class="card-img-top">
+                  <%= link_to item_path(item) do %>
+                    <%= image_tag item.get_item_image(200,200) %>
+                  <% end %>
+                </div>
+                  <%= link_to item.name,  item_path(item) %>
+                  <%= item.price_tax_excluded %>
               </div>
-                <%= link_to item.name,  item_path(item) %>
-                <%= item.description %>
-                <%= item.price_tax_excluded %>
-            </div>
-        </div>
-      <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

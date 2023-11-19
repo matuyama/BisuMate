@@ -16,13 +16,25 @@ class Item < ApplicationRecord
 
   enum is_on_sale: { on_sale:true, sales_stop: false}
 
+  def self.filtering(genre, select, item)
+    if genre.present? && select.present?
+      if select == "size_sutra"
+        where(genre_id: genre, size_sutra: item.size_sutra)
+      elsif select == "size_length"
+        where(genre_id: genre, size_sutra: item.size_length)
+      end
+    else
+      where(genre_id: item.genre.id, size_sutra: item.size_sutra)
+    end
+  end
+
   def self.looks(search, word)
     if search == "word_match"
-      @items = Item.where("name LIKE?","%#{word}%")
+      where("name LIKE?","%#{word}%")
     elsif search == "genre_match"
-      @items = Item.where(genre_id: word)
+      where(genre_id: word)
     else
-      @items = Item.all
+      all
     end
   end
 
@@ -37,5 +49,4 @@ class Item < ApplicationRecord
   def price_tax_including
     (self.price_tax_excluded * 1.1).floor
   end
-
 end

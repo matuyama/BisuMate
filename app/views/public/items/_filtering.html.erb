@@ -1,0 +1,29 @@
+<div class="row">
+  <h4><strong>
+    関連商品一覧
+  </strong></h4>
+  <div class="form-group">
+    <%= form_with url: item_path, method: :get do |f| %>
+      <%= f.select :genre, Genre.all.map{|genre| ["#{genre.name}", "#{genre.id}"]}, {selected: item.genre.name} %>
+      <%= f.select :select, [["経(#{item.size_sutra})mm", "size_sutra"],["同じ長", "size_length"]], {} %>
+      <%= f.submit "検索", class: "btn btn-primary btn-sm" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row row-cols-4">
+  <% items.each do |item| %>
+  <div class="col">
+    <div class="card card-body border-0 bg-transparent w-100">
+      <div class="card-img-top">
+        <%= link_to item_path(item) do %>
+          <%= image_tag item.get_item_image(200,200) %>
+        <% end %>
+      </div>
+        <%= link_to item.name,  item_path(item), class: "card-title" %>
+        <%= item.price_tax_excluded %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
