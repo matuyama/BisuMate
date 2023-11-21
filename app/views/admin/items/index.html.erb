@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4><strong>商品一覧</strong></h4>
+    </div>
+    <div class="col">
+      <%= link_to "新規商品登録", new_admin_item_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+      <% @items.each do |item| %>
+        <tbody>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= link_to item.name, admin_item_path(item) %></td>
+            <td><%= item.price_tax_excluded %></td>
+            <td><%= item.genre.name %></td>
+            <td><%= item.is_on_sale_i18n %></td>
+          </tr>
+        </tbody>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,20 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h5>登録情報</h5>
-      <%= link_to edit_customers_path do %>
-        <span class="btn btn-sm btn-success d-inline px-3" style="font-weigth: bold;">編集する</span>
-      <% end %>
+      <h4><strong>登録情報</strong></h4>
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
-      <h1>マイページ</h1>
+    <div class="col-sm-9">
+      <h4 class="mt-5"><strong>マイページ</strong></h4>
+      <%= link_to edit_customers_path do %>
+        <span class="btn btn-sm btn-success mt-2 mb-2">編集する</span>
+      <% end %>
       <table class="table table-bordered border-dack">
         <tr>
           <th>氏名</th>
-          <td class="table-active w-25"><%= @customer.full_name %></td>
+          <td class="table-active"><%= @customer.full_name %></td>
         </tr>
         <tr>
           <th>カナ</th>
@@ -44,16 +44,16 @@
     <div class="col">
       <h5>配送先</h5>
       <%= link_to addresses_path do %>
-        <span class="btn btn-sm btn-primary d-inline px-3" style="font-weigth: bold;">一覧を見る</span>
+        <span class="btn btn-sm btn-primary">一覧を見る</span>
       <% end %>
     </div>
   </div>
 
   <div class="row">
     <div class="col">
-      <h5>注文履歴</h5>
+      <h5 class="mt-2">注文履歴</h5>
       <%= link_to orders_path do %>
-        <span class="btn btn-sm btn-primary d-inline px-3" style="font-weigth: bold;">一覧を見る</span>
+        <span class="btn btn-sm btn-primary">一覧を見る</span>
       <% end %>
     </div>
   </div>

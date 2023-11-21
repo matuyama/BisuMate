@@ -1,16 +1,35 @@
 <div class="container">
+  <h4><strong>商品一覧</strong></h4>
+  <span>(全<%= @items.count %>件)</span>
   <div class="row">
-    <div class="col">
-      <h1>商品一覧</h1>
-      <% @items.each do |item| %>
-        <div class="card w-100 bg-transparent border-0">
-          <div class="card-body">
-            <div class="card-text"><%= link_to item.name,  item_path(item) %></div>
-            <div class="card-text"><%= item.description %></div>
-            <div class="card-text"><%= item.price_tax_excluded %></div>
+    <%= render "search_form"  %>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <table class="table">
+        <% @genres.each do |genre| %>
+          <tr>
+            <th><%= link_to genre.name, items_path(search: "genre_match", word: genre.id) %></th>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-8">
+      <div class="row">
+        <% @items.each do |item| %>
+          <div class="col">
+              <div class="card border-0 bg-transparent" style="width: 150px;">
+                <div class="card-img-top">
+                  <%= link_to item_path(item) do %>
+                    <%= image_tag item.get_item_image(150,150) %>
+                  <% end %>
+                </div>
+                  <%= link_to item.name,  item_path(item) %>
+                  <%= item.price_tax_excluded %>
+              </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

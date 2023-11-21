@@ -12,10 +12,16 @@ class Customer < ApplicationRecord
     self.last_name + "" + self.first_name
   end
 
+  def name
+    self.last_name + "" + self.first_name
+  end
+
   def kana_full_name
     self.kana_last_name + "" + self.kana_first_name
   end
-  
-  
+
+  def deliveryTarget
+    "〒#{self.postal_code} #{self.address} \n#{self.full_name}"
+  end
 
 end

@@ -3,28 +3,35 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get "about" => "homes#about"
+
     resources :items, only: [:index, :show]
     resource :customers, only: [:edit, :update] do
       get "mypage" => "customers#show"
       get "unsubscribe" => "customers#unsubscribe"
       patch "quit" => "customers#quit"
     end
+
     resources :cart_items, only: [:index, :update, :destroy, :create] do
       collection do
         delete "destroy_all" => "cart_items#destroy_all"
       end
     end
-    resource :orders, only: [:new, :create, :index, :show] do
-      post "confirm" => "orders#confirm"
-      get "thanks" => "orders#thanks"
+
+    resources :orders, only: [:index, :new, :create, :show] do
+      collection do
+        post "confirm" => "orders#confirm"
+        get "confirm" => "orders#new"
+        get "thanks" => "orders#thanks"
+      end
     end
+
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 
   namespace :admin do
     root to: "homes#top"
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
-    resources :genres, only: [:index, :show, :edit, :update]
+    resources :genres, only: [:index, :create, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:show, :update] do
       resources :order_details, only: [:update]

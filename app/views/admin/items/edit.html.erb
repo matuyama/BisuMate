@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @item, url: admin_item_path(@item) do |f| %>
+      <table class="table">
+        <div class="form-group">
+          <tr>
+            <th><%= f.label :item_image, "商品画像" %></th>
+            <th><%= f.file_field :item_image, accept: "image/*" %></th>
+          </tr>
+          <tr>
+            <th><%= f.label :name, "商品名" %></th>
+            <th><%= f.text_field :name, class: "form-control" %></th>
+          </tr>
+          <tr>
+            <th><%= f.label :description, "商品説明" %></th>
+            <th><%= f.text_area :description, class: "form-control", size: "50x4" %></th>
+          </tr>
+          <tr>
+            <th><%= f.label :genre_id, "ジャンル" %></th>
+            <th>
+              <%= f.select :genre_id, Genre.all.map{|genre| [genre.name, genre.id]} %>
+            </th>
+          </tr>
+          <tr>
+            <th><%= f.label :size_sutra, "サイズ(経)" %></th>
+            <th>
+              <div style="display: flex; align-items:center;">
+                <%= f.text_field :size_sutra, class: "form-control" %>
+                <span class="ml-3">mm</span>
+              </div>
+            </th>
+          </tr>
+          <tr>
+            <th><%= f.label :size_length, "サイズ(長)" %></th>
+            <th>
+              <div style="display: flex; align-item:center;">
+                <%= f.text_field :size_length, class: "form-control" %>
+                <span class="ml-3">mm</span>
+              </div>
+            </th>
+          </tr>
+          <tr>
+            <th><%= f.label :price_tax_excluded, "税抜価格" %></th>
+            <th>
+              <div style="display: flex; align-item:center;">
+                <%= f.text_field :price_tax_excluded, class: "form-control" %>
+                <span class="ml-3">円</span>
+              </div>
+            </th>
+          </tr>
+          <tr>
+            <th><%= f.label :is_on_sale, "販売ステータス" %></th>
+            <th>
+              <%= f.radio_button :is_on_sale, "on_sale", checked: true %>
+              <%= f.label :is_on_sale, "販売中", {value: true} %>
+              <%= f.radio_button :is_on_sale, "sales_stop" %>
+              <%= f.label :is_on_sale, "販売停止中", {value: false} %>
+            </th>
+          </tr>
+        </div>
+      </table>
+      <%= f.submit "変更を保存", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>

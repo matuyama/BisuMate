@@ -48,7 +48,7 @@ Genre.create!(
   )
 
 Item.create!(
-  genre_id: 1,
+  genre_id: 2,
   name: "SUSナベコネジ4X25(1パック150個)",
   description: "ステンレスSUSXM7・十字穴",
   size_sutra: 4,
@@ -58,7 +58,7 @@ Item.create!(
   )
 
 Item.create!(
-  genre_id: 2,
+  genre_id: 1,
   name: "SUS六角ボルト4X8(1パック70個)",
   description: "ステンレスSUS304・六角",
   size_sutra: 4,

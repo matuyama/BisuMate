@@ -1,0 +1,27 @@
+<div class="container">
+  <h4><strong>会員一覧</strong></h4>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <theade>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </theade>
+        <% @customers.each do |customer| %>
+        <tbody>
+          <tr>
+            <td><%= customer.id %></td>
+            <td><%= link_to customer.name, admin_customer_path(customer) %></td>
+            <td><%= customer.email %></td>
+            <td><%= render "status", customer: customer %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

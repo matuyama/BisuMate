@@ -1,22 +1,30 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>トップページ</h1>
+      <h5 class="text-center">
+        『あなたのDIYをサポート - BisuMate』<br>
+        ビス購入の複雑さを解消！</br>
+        BisuMateでは、ビスとその関連部品を一括して提供。<br>
+        初心者でもサイズ選びの失敗を防ぎ、必要な部品を簡単に見つけることができます。
+      </h5>
     </div>
   </div>
 
-  <div class="row">
+  <h4>新規商品</h4>
+  <div class="row row-cols-4">
+    <% @items.each do |item| %>
     <div class="col">
-      <h1>新規商品</h1>
-      <% @items.first(4).each do |item| %>
-        <div class="card w-100 bg-transparent border-0">
-          <div class="card-body">
-            <div class="card-text"><%= link_to item.name,  item_path(item) %></div>
-            <div class="card-text"><%= item.description %></div>
-            <div class="card-text"><%= item.price_tax_excluded %></div>
+        <div class="card border-0 bg-transparent w-100">
+          <div class="card-img-top">
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.get_item_image(200,200) %>
+            <% end %>
           </div>
+            <%= link_to item.name,  item_path(item) %>
+            <%= item.description %>
+            <%= item.price_tax_excluded %>
         </div>
-      <% end %>
     </div>
+    <% end %>
   </div>
 </div>
