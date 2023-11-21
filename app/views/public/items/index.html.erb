@@ -15,18 +15,13 @@
       </table>
     </div>
     <div class="col-8">
-      <div class="row row-cols-4">
-        <% if flash[:notice] %>
-          <div class="alert alert-info">
-            <%= flash[:notice] %>
-          </div>
-        <% end %>
+      <div class="row">
         <% @items.each do |item| %>
           <div class="col">
-              <div class="card border-0 bg-transparent w-100">
+              <div class="card border-0 bg-transparent" style="width: 150px;">
                 <div class="card-img-top">
                   <%= link_to item_path(item) do %>
-                    <%= image_tag item.get_item_image(200,200) %>
+                    <%= image_tag item.get_item_image(150,150) %>
                   <% end %>
                 </div>
                   <%= link_to item.name,  item_path(item) %>

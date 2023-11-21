@@ -1,5 +1,7 @@
 class Public::ItemsController < ApplicationController
 
+  before_action :authenticate_customer!, except: [:index, :show]
+
   def index
     @items = Item.looks((params[:search]), (params[:word]))
     @genres = Genre.all
@@ -10,7 +12,8 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @items = Array(Item.filtering(params[:genre], params[:select], @item))
+    @itemFiltering = Item.find(params[:id])
+    @items = Array(Item.filtering(params[:genre_id], params[:select], @item))
     @cart_item = CartItem.new
   end
 

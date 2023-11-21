@@ -1,23 +1,23 @@
-<div class="row">
-  <h4><strong>
-    関連商品一覧
-  </strong></h4>
+<div class="row" style="margin-top: 100px;">
+  <h5><strong>関連商品一覧</strong></h5>
+</div>
+<div>
   <div class="form-group">
     <%= form_with url: item_path, method: :get do |f| %>
-      <%= f.select :genre, Genre.all.map{|genre| ["#{genre.name}", "#{genre.id}"]}, {selected: item.genre.name} %>
-      <%= f.select :select, [["経(#{item.size_sutra})mm", "size_sutra"],["同じ長", "size_length"]], {} %>
+      <%= f.select :genre_id, Genre.all.map{ |g| [g.name, g.id] }, {selected: itemFiltering.genre_id} %>
+      <%= f.select :select, [["同じ経(#{itemFiltering.size_sutra})mm", "size_sutra"],["同じ経(#{itemFiltering.size_length})mm", "size_length"]], {} %>
       <%= f.submit "検索", class: "btn btn-primary btn-sm" %>
     <% end %>
   </div>
 </div>
 
-<div class="row row-cols-4">
+<div class="row d-flex">
   <% items.each do |item| %>
   <div class="col">
-    <div class="card card-body border-0 bg-transparent w-100">
+    <div class="card card-body border-0 bg-transparent" style="width: 150px;">
       <div class="card-img-top">
         <%= link_to item_path(item) do %>
-          <%= image_tag item.get_item_image(200,200) %>
+          <%= image_tag item.get_item_image(150,150) %>
         <% end %>
       </div>
         <%= link_to item.name,  item_path(item), class: "card-title" %>

@@ -1,5 +1,7 @@
 class Public::AddressesController < ApplicationController
 
+  before_action :access_limit, only: [:edit, :update, :destroy]
+
   def index
     @addresses = Address.where(customer_id: current_customer.id)
     @address = Address.new
@@ -12,7 +14,7 @@ class Public::AddressesController < ApplicationController
       redirect_to addresses_path
     else
       flash.now[:notice] = "登録に失敗しました"
-      render :index
+      redirect_to addresses_path
     end
   end
 
@@ -43,6 +45,13 @@ class Public::AddressesController < ApplicationController
 
   def address_params
     params.require(:address).permit(:customer, :name, :postal_code, :address)
+  end
+
+  def access_limit
+    address = Address.find(params[:id])
+    unless address.customer_id == current_customer.id
+      redirect_to addresses_path
+    end
   end
 
 end
