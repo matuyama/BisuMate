@@ -4,6 +4,7 @@ class Public::ItemsController < ApplicationController
 
   def index
     @items = Item.looks((params[:search]), (params[:word]))
+    @items = @items.page(params[:page]).per(8)
     @genres = Genre.all
     if @items.empty?
       flash.now[:notice] = "商品がありません。"
@@ -14,6 +15,7 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @itemFiltering = Item.find(params[:id])
     @items = Array(Item.filtering(params[:genre_id], params[:select], @item))
+    @items = @items.page(params[:page]).per(8)
     @cart_item = CartItem.new
   end
 
