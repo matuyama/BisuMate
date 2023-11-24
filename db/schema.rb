@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2023_11_15_151022) do
     t.text "description", null: false
     t.integer "size_sutra", default: 0, null: false
     t.integer "size_length", default: 0, null: false
+    t.integer "stock", default: 0
     t.integer "price_tax_excluded", null: false
     t.boolean "is_on_sale", default: true, null: false
     t.datetime "created_at", precision: 6, null: false

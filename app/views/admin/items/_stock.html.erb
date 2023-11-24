@@ -1,0 +1,4 @@
+<%= form_with model: item, url: admin_item_add_stock_path(item), method: :patch do |f| %>
+  <%= f.text_field :add_stock %>
+  <%= f.submit "追加" %>
+<% end %>

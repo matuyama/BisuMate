@@ -26,6 +26,15 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def add_stock
+    item = Item.find(params[:item_id])
+    item.stock += params[:item][:add_stock].to_i
+    # byebug
+    if item.update(stock: item.stock)
+      redirect_to edit_admin_item_path(item)
+    end
+  end
+
   def update
     item = Item.find(params[:id])
     if item.update(item_params)
@@ -39,7 +48,7 @@ class Admin::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:genre_id, :name, :description, :size_sutra, :size_length, :price_tax_excluded, :is_on_sale, :item_image)
+    params.require(:item).permit(:genre_id, :name, :description, :size_sutra, :size_length, :price_tax_excluded, :stock, :is_on_sale, :item_image)
   end
-  
+
 end
