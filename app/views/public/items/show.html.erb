@@ -8,13 +8,21 @@
         <div>
           <h3><%= @item.name %></h3>
           <p><%= @item.description %></p>
-          <h5><strong>￥<%= @item.price_tax_including.to_s(:delimited) %></strong></h5>
-          <span class="mx-1" style="font-size; 12px">(税込)</span>
+          <span style="font-size: 12px;">(税込)</span>
+          <h5><strong>￥ <%= @item.price_tax_including.to_s(:delimited) %></strong></h5>
+          <div class="d-flex flex-row align-items-center">
+            <%= render "admin/items/is_on_sale", item: @item %>
+            <% if @item.stock >= 1 && @item.stock <= 10 %>
+              <div class="badge badge-warning ml-2">❗ 在庫が残りわずかです (残り<%= @item.stock %>個)</div>
+            <% end %>
+          </div>
           <div class="form-group">
-            <%= form_with model: @cart_item, url: cart_items_path do |f| %>
-              <%= f.hidden_field :item_id, value: @item.id %>
-              <%= f.select :amount, (1..10).to_a.map{ |q| ["#{q}個", q] }, {} %>
-              <%= f.submit "カートに入れる", class: "btn btn-success btn-sm" %>
+            <% if @item.is_on_sale == "on_sale" %>
+              <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+                <%= f.hidden_field :item_id, value: @item.id %>
+                <%= f.select :amount, (1..10).to_a.map{ |q| ["#{q}個", q] }, {} %>
+                <%= f.submit "カートに入れる", class: "btn btn-success btn-sm" %>
+              <% end %>
             <% end %>
           </div>
         </div>

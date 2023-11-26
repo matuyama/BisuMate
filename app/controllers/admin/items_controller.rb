@@ -29,7 +29,6 @@ class Admin::ItemsController < ApplicationController
   def add_stock
     item = Item.find(params[:item_id])
     item.stock += params[:item][:add_stock].to_i
-    # byebug
     if item.update(stock: item.stock)
       redirect_to edit_admin_item_path(item)
     end

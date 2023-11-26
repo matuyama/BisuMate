@@ -4,7 +4,9 @@
       <%= form_with model: @item, url: admin_item_path(@item), local: true do |f| %>
       <table class="table">
         <div class="form-group">
-          <%= f.submit "変更を保存", class: "btn btn-success" %>
+          <tr>
+            <%= f.submit "変更を保存", class: "btn btn-success" %>
+          </tr>
           <tr>
             <th><%= f.label :item_image, "商品画像" %></th>
             <th><%= f.file_field :item_image, accept: "image/*" %></th>
@@ -59,20 +61,26 @@
               <%= f.label :is_on_sale, "販売停止中", {value: false} %>
             </th>
           </tr>
-          <% end %>
-          <%= form_with model: @item, url: admin_item_add_stock_path(@item), method: :patch, local: true do |f| %>
-            <tr>
-              <th>在庫数</th>
-              <th>
-                <%= @item.stock %> 個
-                <%= f.text_field :add_stock %>
-                <%= f.submit "追加" %>
-              </th>
-              <th></th>
-            </tr>
-          <% end %>
         </div>
       </table>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @item, url: admin_item_add_stock_path(@item), method: :patch, local: true do |f| %>
+      <table class="table">
+        <tr>
+          <th>在庫数</th>
+          <th>
+            <%= @item.stock %> 個
+            <%= f.text_field :add_stock %>
+            <%= f.submit "追加" %>
+          </th>
+          <th></th>
+        </tr>
+      </table>
+      <% end %>
     </div>
   </div>
 </div>

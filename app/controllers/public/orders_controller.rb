@@ -32,15 +32,27 @@ class Public::OrdersController < ApplicationController
     if order.save
       cart_items = CartItem.where(customer_id: current_customer.id)
       cart_items.each do |cart_item|
+        if cart_item.item.stock < cart_item.amount
+          flash[:notice] = "在庫数を超えてしまっています。"
+          redirect_to item_path(item_id) and return
+        end
         order_detail = OrderDetail.new
         order_detail.order_id = order.id
         order_detail.item_id = cart_item.item.id
         order_detail.amount = cart_item.amount
         order_detail.price_tax_included = cart_item.item.price_tax_including
-        if order_detail.save
-          cart_items.destroy_all
+        order_detail.save
+      end
+      cart_items.each do |cart_item|
+        item = Item.find_by(id: cart_item.item_id)
+        item.stock -= cart_item.amount
+        item.update(stock: item.stock)
+        if item.stock <= 0
+          item.is_on_sale = "sales_stop"
+          item.update(is_on_sale: item.is_on_sale)
         end
       end
+      cart_items.destroy_all
       redirect_to thanks_orders_path
     else
       flash.now[:notice] = "注文処理に失敗しました。"

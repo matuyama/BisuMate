@@ -1,0 +1,5 @@
+<% if item.is_on_sale == "on_sale" %>
+  <strong style="color: limegreen;"><%= item.is_on_sale_i18n %></strong>
+<% else %>
+  <strong><%= item.is_on_sale_i18n %></strong>
+<% end %>

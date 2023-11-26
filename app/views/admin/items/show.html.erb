@@ -26,7 +26,11 @@
           </tr>
           <tr>
             <th>販売ステータス</th>
-            <th><%= @item.is_on_sale_i18n %></th>
+            <th><%= render "is_on_sale", item: @item %></th>
+          </tr>
+          <tr>
+            <th>在庫数</th>
+            <th><%= @item.stock %> 個</th>
           </tr>
         </table>
       </div>

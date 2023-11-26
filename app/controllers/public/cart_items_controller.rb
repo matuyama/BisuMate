@@ -2,9 +2,15 @@ class Public::CartItemsController < ApplicationController
 
   def create
     item_id = params[:cart_item][:item_id]
+    amount = params[:cart_item][:amount].to_i
+    item = Item.find(item_id)
+    if item.stock < amount
+      flash[:notice] = "在庫数を超えてしまっています。"
+      redirect_to item_path(item_id) and return
+    end
+
     existing_cart_item = current_customer.cart_items.find_by(item_id: item_id)
     if existing_cart_item
-      amount = params[:cart_item][:amount].to_i
       existing_cart_item.update(amount: existing_cart_item.amount + amount)
     else
       cart_item = CartItem.new(cart_item_params)
