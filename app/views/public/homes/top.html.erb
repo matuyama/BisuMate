@@ -1,16 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col d-flex justify-content-center align-items-center" style="background-image: url('<%= asset_path 'background.jpg' %>'); height: 200px;">
       <h5 class="text-center">
+        <strong>
         『あなたのDIYをサポート - BisuMate』<br>
         ビス購入の複雑さを解消！</br>
         BisuMateでは、ビスとその関連部品を一括して提供。<br>
         初心者でもサイズ選びの失敗を防ぎ、必要な部品を簡単に見つけることができます。
+        </strong>
       </h5>
     </div>
   </div>
 
-  <h4>新規商品</h4>
+  <h4 class="mt-5">新規商品</h4>
   <div class="row row-cols-4">
     <% @items.each do |item| %>
     <div class="col">
@@ -20,9 +22,12 @@
               <%= image_tag item.get_item_image(200,200) %>
             <% end %>
           </div>
+          <div class="card-text">
             <%= link_to item.name,  item_path(item) %>
-            <%= item.description %>
-            <%= item.price_tax_excluded %>
+          </div>
+          <div class="card-text">
+            <%= item.price_tax_excluded.to_s(:delimited) %>円(税抜)
+          </div>
         </div>
     </div>
     <% end %>
