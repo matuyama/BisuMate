@@ -2,16 +2,16 @@ class Admin::GenresController < ApplicationController
 
   def index
     @genre = Genre.new
-    @genres = Genre.all
+    @genres = Genre.page(params[:page]).per(6)
   end
 
   def create
     genre = Genre.new(genre_params)
     if genre.save
-      redirect_to
+      redirect_to admin_genres_path, notice: "ジャンルを追加しました。"
     else
-      flash.now[:notice] = "保存に失敗しました"
-      render :new
+      flash[:notice] = "保存に失敗しました"
+      redirect_to admin_genres_path
     end
   end
 

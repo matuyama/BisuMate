@@ -24,7 +24,7 @@
         <th>
           <%= form_with model: @order, url: admin_order_path(@order) do |f| %>
             <%= f.select :status, Order.statuses.keys.map{|key| [I18n.t("enums.order.status.#{key}"), key]},{selected: @order.status} %>
-            <%= f.submit "更新", class: "btn btn-success" %>
+            <%= f.submit "更新", class: "btn btn-success btn-sm" %>
           <% end %>
         </th>
       </tr>
@@ -48,13 +48,13 @@
           <% @order.order_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.item.name %></td>
-            <td><%= order_detail.item.price_tax_including %></td>
+            <td><%= order_detail.item.price_tax_including.to_s(:delimited) %></td>
             <td><%= order_detail.amount %></td>
-            <td><%= order_detail.subtotal %></td>
+            <td><%= order_detail.subtotal.to_s(:delimited) %></td>
             <td>
               <%= form_with model: order_detail, url: admin_order_order_detail_path(order_detail) do |f| %>
                 <%= f.select :status, OrderDetail.statuses.keys.map{|key| [I18n.t("enums.order_detail.status.#{key}"), key]},{selected: order_detail.status} %>
-                <%= f.submit "更新", class: "btn btn-success" %>
+                <%= f.submit "更新", class: "btn btn-success btn-sm" %>
               <% end %>
             </td>
           </tr>
@@ -68,15 +68,15 @@
       <table class="table">
         <tr>
           <th>商品合計</th>
-          <th><%= @total %>円</th>
+          <th><%= @total.to_s(:delimited) %>円</th>
         </tr>
         <tr>
           <th>送料</th>
-          <th><%= @order.postage %>円</th>
+          <th><%= @order.postage.to_s(:delimited) %>円</th>
         </tr>
         <tr>
           <th>請求金額合計</th>
-          <th><%= @total + @order.postage %>円</th>
+          <th><%= (@total + @order.postage).to_s(:delimited) %>円</th>
         </tr>
       </table>
     </div>

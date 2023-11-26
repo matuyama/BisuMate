@@ -21,7 +21,7 @@
         <% end %>
       </div>
         <%= link_to item.name,  item_path(item), class: "card-title" %>
-        <%= item.price_tax_excluded %>
+        <%= item.price_tax_excluded.to_s(:delimited) %>円(税抜)
     </div>
   </div>
   <% end %>

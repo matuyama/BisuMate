@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h4><strong>商品一覧</strong></h4>
+      <h4><strong>注文履歴一覧</strong></h4>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -30,6 +30,9 @@
           <% end %>
         </tbody>
       </table>
+      <div class="d-flex justify-content-center">
+        <%= paginate @orders %>
+      </div>
     </div>
   </div>
 </div>

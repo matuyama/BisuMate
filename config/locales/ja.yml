@@ -7,15 +7,15 @@
       status:
         wait_for_payment: "入金待ち"
         payment_confirmation: "入金確認"
-        in_production: "製作中"
         preparing_delivery: "発送準備中"
+        deliveryPreparationComplete: "発送準備完了"
         delivered: "発送済み"
     order_detail:
       status:
         start_not_possible: "着手不可"
-        production_pending: "製作待ち"
-        in_production: "製作中"
-        production_complete: "製作完了"
+        deliveryPreparationPending: "発送準備待ち"
+        preparing_delivery: "発送準備中"
+        deliveryPreparationComplete: "発送準備完了"
     item:
       is_on_sale:
         on_sale: "販売中"

@@ -5,7 +5,7 @@
       <%= form_with model: @genre, url: admin_genres_path do |f| %>
         <%= f.label :name, "ジャンル名" %>
         <%= f.text_field :name, class: "form-control w-25" %>
-        <%= f.submit "新規登録", class: "btn btn-success" %>
+        <%= f.submit "新規登録", class: "btn btn-success btn-sm mt-2" %>
       <% end %>
     </div>
   </div>
@@ -16,17 +16,19 @@
         <thead>
           <tr>
             <th>ジャンル</th>
+            <th></th>
           </tr>
         </thead>
         <% @genres.each do |genre| %>
         <tbody>
           <tr>
             <td><%= genre.name %></td>
-            <td><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-success" %></td>
+            <td><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-success btn-sm" %></td>
           </tr>
         </tbody>
         <% end %>
       </table>
+      <%= paginate @genres %>
     </div>
   </div>
 </div>

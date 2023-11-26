@@ -22,7 +22,7 @@
           </tr>
           <tr>
             <th>税込価格<br>(税抜価格)</th>
-            <th><%= @item.price_tax_including %> (<%= @item.price_tax_excluded %>) 円</th>
+            <th><%= @item.price_tax_including.to_s(:delimited) %> (<%= @item.price_tax_excluded.to_s(:delimited) %>) 円</th>
           </tr>
           <tr>
             <th>販売ステータス</th>
@@ -30,7 +30,7 @@
           </tr>
           <tr>
             <th>在庫数</th>
-            <th><%= @item.stock %> 個</th>
+            <th><%= @item.stock.to_s(:delimited) %> 個</th>
           </tr>
         </table>
       </div>
