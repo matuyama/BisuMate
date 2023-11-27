@@ -19,10 +19,11 @@ class Public::OrdersController < ApplicationController
       @order_info = Address.find(params[:order][:address_id])
       @deliveryTarget = @order_info.deliveryTarget
     elsif selected_address == 2
-      @order_info = params[:order]
+      @order_info = Order.new(postal_code: params[:order][:postal_code], address: params[:order][:address], name: params[:order][:name])
       @deliveryTarget = @order_info.deliveryTarget
     else
-      render :new
+      flash[:notice] = "注文情報処理に失敗しました"
+      redirect_to new_order_path
     end
   end
 
@@ -33,7 +34,7 @@ class Public::OrdersController < ApplicationController
       cart_items = CartItem.where(customer_id: current_customer.id)
       cart_items.each do |cart_item|
         if cart_item.item.stock < cart_item.amount
-          flash[:notice] = "在庫数を超えてしまっています。"
+          flash[:notice] = "在庫数を超えてしまっています"
           redirect_to item_path(item_id) and return
         end
         order_detail = OrderDetail.new
@@ -55,8 +56,8 @@ class Public::OrdersController < ApplicationController
       cart_items.destroy_all
       redirect_to thanks_orders_path
     else
-      flash.now[:notice] = "注文処理に失敗しました。"
-      render :new
+      flash[:notice] = "注文処理に失敗しました"
+      redirect_to new_order_path
     end
   end
 

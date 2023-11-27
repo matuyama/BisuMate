@@ -7,6 +7,7 @@ class Item < ApplicationRecord
     validates :size_sutra
     validates :size_length
     validates :price_tax_excluded
+    validates :stock
     validates :is_on_sale
   end
 

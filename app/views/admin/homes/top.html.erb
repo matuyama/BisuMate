@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h4><strong>注文履歴一覧</strong></h4>
+      <% if @params.present? %>
+        <h4><strong><%= @customer.name %>  さんの注文履歴一覧</strong></h4>
+      <% else %>
+        <h4><strong>注文履歴一覧</strong></h4>
+      <% end %>
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -18,7 +22,11 @@
               <%= link_to admin_order_path(order) do %>
                 <%= order.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
               <% end %>
-            <td><%= order.name %></td>
+            <td>
+              <%= link_to admin_customer_path(order.customer) do %>
+                <%= order.customer.name %>
+              <% end %>
+            </td>
             <td>
               <% order.order_details.each do |order_detail| %>
                 <% @total_amount += order_detail.amount %>

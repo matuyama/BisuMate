@@ -5,7 +5,7 @@
       <table class="table">
       <tr>
         <th>購入者</th>
-        <th><%= link_to @order.name, admin_customer_path(@order) %></th>
+        <th><%= link_to @order.customer.name, admin_customer_path(@order) %></th>
       </tr>
       <tr>
         <th>注文日</th>

@@ -13,7 +13,7 @@ class Public::AddressesController < ApplicationController
     if @address.save
       redirect_to addresses_path
     else
-      flash.now[:notice] = "登録に失敗しました"
+      flash[:notice] = "登録に失敗しました"
       redirect_to addresses_path
     end
   end
@@ -27,7 +27,8 @@ class Public::AddressesController < ApplicationController
     if address.update(address_params)
       redirect_to addresses_path
     else
-      flash.new[:notice] = "更新に失敗しました"
+      flash[:notice] = "更新に失敗しました"
+      redirect_to addresses_path
     end
   end
 
@@ -36,8 +37,8 @@ class Public::AddressesController < ApplicationController
     if address.destroy
       redirect_to addresses_path
     else
-      flash.now[:notice] = "削除に失敗しました。"
-      render :index
+      flash[:notice] = "削除に失敗しました。"
+      redirect_to addresses_path
     end
   end
 

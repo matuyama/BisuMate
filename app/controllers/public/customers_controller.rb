@@ -11,10 +11,10 @@ class Public::CustomersController < ApplicationController
   def update
     customer = Customer.find(current_customer.id)
     if customer.update(customer_params)
-      flash[:success] = "ご登情報の変更が完了しました"
       redirect_to mypage_customers_path(current_customer)
     else
-      render :edit
+      flash[:notice] = "更新に失敗しました"
+      redirect_to mypage_customers_path(current_customer)
     end
   end
 
@@ -32,7 +32,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :kana_last_name, :kana_first_name, :postal_code, :address, :phone_numbre, :email)
+    params.require(:customer).permit(:last_name, :first_name, :kana_last_name, :kana_first_name, :postal_code, :address, :phone_number, :email)
   end
 
 end

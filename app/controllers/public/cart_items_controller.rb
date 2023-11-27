@@ -30,8 +30,8 @@ class Public::CartItemsController < ApplicationController
     if @cart_item.update(cart_item_params)
       redirect_to cart_items_path
     else
-      flash.now[:notice] = "更新に失敗しました。"
-      rendre :index
+      flash[:notice] = "更新に失敗しました。"
+      redirect_to cart_items_path
     end
   end
 
@@ -40,8 +40,8 @@ class Public::CartItemsController < ApplicationController
     if cart_item.destroy
       redirect_to cart_items_path
     else
-      flash.now[:destory] = "削除に失敗しました。"
-      render :index
+      flash[:notice] = "削除に失敗しました。"
+      redirect_to cart_items_path
     end
 
   end

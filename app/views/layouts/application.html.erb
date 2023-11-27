@@ -15,9 +15,9 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg">
           <% if admin_signed_in? %>
-            <a class="navbar-brand" href="/admin"><h3>BisuMate</h3></a>
+            <%= link_to image_tag("logo.png", alt: "BisuMate", class: "navbar-logo"), admin_root_path %>
           <% else %>
-            <a class="navbar-brand" href="/"><h3>BisuMate</h3></a>
+            <%= link_to image_tag("logo.png", alt: "BisuMate", class: "navbar-logo"), root_path %>
           <% end %>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,45 +27,45 @@
             <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to "商品一覧", admin_items_path, class: "btn btn-default" %>
+                  <%= link_to "商品一覧", admin_items_path, class: "btn btn-white-bold" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "会員一覧", admin_customers_path, class: "btn btn-default" %>
+                  <%= link_to "会員一覧", admin_customers_path, class: "btn btn-white-bold" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "注文履歴一覧", admin_root_path, class: "btn btn-default" %>
+                  <%= link_to "注文履歴一覧", admin_root_path, class: "btn btn-white-bold" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-default" %>
+                  <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-white-bold" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-default" %>
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-white-bold" %>
                 </li>
               <% elsif customer_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to "マイページ", mypage_customers_path, class: "btn btn-default" %>
+                <li class="nav-item" >
+                  <%= link_to "マイページ", mypage_customers_path, class: "btn btn-white-bold" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "商品一覧", items_path, class: "btn btn-default" %>
+                  <%= link_to "商品一覧", items_path, class: "btn btn-white-bold" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "カート", cart_items_path, class: "btn btn-default" %>
+                  <%= link_to "カート", cart_items_path, class: "btn btn-white-bold" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-default" %>
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-white-bold" %>
                 </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to "About", about_path, class: "btn btn-default" %>
+                  <%= link_to "About", about_path, class: "btn btn-white-bold" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "商品一覧", items_path, class: "btn btn-default" %>
+                  <%= link_to "商品一覧", items_path, class: "btn btn-white-bold" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-default" %>
+                  <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-white-bold" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ログイン", new_customer_session_path, class: "btn btn-default" %>
+                  <%= link_to "ログイン", new_customer_session_path, class: "btn btn-white-bold" %>
                 </li>
               <% end %>
             </ul>

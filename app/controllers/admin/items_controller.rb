@@ -1,7 +1,7 @@
 class Admin::ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).per(12)
   end
 
   def new
@@ -30,6 +30,9 @@ class Admin::ItemsController < ApplicationController
     item = Item.find(params[:item_id])
     item.stock += params[:item][:add_stock].to_i
     if item.update(stock: item.stock)
+      redirect_to edit_admin_item_path(item)
+    else
+      flash[:notice] = "保存に失敗しました"
       redirect_to edit_admin_item_path(item)
     end
   end

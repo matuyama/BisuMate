@@ -5,9 +5,6 @@ class Public::ItemsController < ApplicationController
   def index
     @items = Item.looks((params[:search]), (params[:word])).page(params[:page]).per(8)
     @genres = Genre.all
-    if @items.empty?
-      flash.now[:notice] = "商品がありません。"
-    end
   end
 
   def show
