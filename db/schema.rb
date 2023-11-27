@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2023_11_15_151022) do
     t.string "kana_first_name", null: false
     t.string "postal_code", null: false
     t.string "address", null: false
-    t.string "phone_numbre", null: false
+    t.string "phone_number", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

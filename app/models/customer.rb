@@ -7,15 +7,15 @@ class Customer < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :cart_items, dependent: :destroy
-  
+
   with_options presence: do
     validates :last_name
     validates :first_name
-    validates :last_name_furigana
-    validates :first_name_furigana
+    validates :kana_last_name
+    validates :kana_first_name
     validates :postal_code
     validates :address
-    validates :telephone_number
+    validates :phone_number
     validates :email
   end
 

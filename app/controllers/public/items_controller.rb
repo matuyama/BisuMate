@@ -13,7 +13,7 @@ class Public::ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @itemFiltering = Item.find(params[:id])
-    @items = Item.filtering(params[:genre_id], params[:select], @item).page(params[:page]).per(6)
+    @items = Item.filtering(params[:genre_id], params[:select], @item).page(params[:page]).per(5)
     @cart_item = CartItem.new
   end
 

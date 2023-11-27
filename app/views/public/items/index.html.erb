@@ -15,7 +15,7 @@
       </table>
     </div>
     <div class="col-8">
-      <div class="row">
+      <div class="row mb-5">
         <% @items.each do |item| %>
           <div class="col">
               <div class="card border-0 bg-transparent" style="width: 150px;">
@@ -24,13 +24,13 @@
                     <%= image_tag item.get_item_image(150,150) %>
                   <% end %>
                 </div>
-                  <%= link_to item.name,  item_path(item) %>
+                  <%= link_to item.name,  item_path(item), class: "card-title" %>
                   <%= item.price_tax_excluded.to_s(:delimited) %>円(税抜)
               </div>
           </div>
         <% end %>
-        <%= paginate @items %>
       </div>
+        <%= paginate @items %>
     </div>
   </div>
 </div>
