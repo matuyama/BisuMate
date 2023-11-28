@@ -74,7 +74,7 @@
           <th>在庫数</th>
           <th>
             <%= @item.stock %> 個
-            <%= f.text_field :add_stock %>
+            <%= f.text_field :add_stock, placeholder: '在庫を減らしい場合は(-)で追加'  %>
             <%= f.submit "追加" %>
           </th>
           <th></th>

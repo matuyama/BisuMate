@@ -14,15 +14,17 @@
 
 <div class="row">
   <% items.each do |item| %>
-  <div class="col">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
     <div class="card border-0 bg-transparent" style="width: 150px;">
       <div class="card-img-top">
         <%= link_to item_path(item) do %>
           <%= image_tag item.get_item_image(150,150) %>
         <% end %>
       </div>
-        <%= link_to item.name,  item_path(item), class: "card-title" %>
-        <%= item.price_tax_excluded.to_s(:delimited) %>円(税抜)
+      <div class="card-body">
+        <div><%= link_to item.name,  item_path(item), class: "card-title" %></div>
+        <div><%= item.price_tax_excluded.to_s(:delimited) %>円(税抜)</div>
+      </div>
     </div>
   </div>
   <% end %>

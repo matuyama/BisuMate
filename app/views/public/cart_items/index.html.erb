@@ -13,32 +13,34 @@
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-9">
       <table class="table table-bordred border-back">
         <thead>
           <tr>
+            <th></th>
             <th>商品名</th>
             <th>単価(税込)</th>
             <th>数量</th>
             <th>小計</th>
-            <th></th>
           </tr>
         </thead>
         <% @cart_items.each do |cart_item| %>
         <tbody>
           <tr>
             <td>
+              <%= link_to item_path(cart_item.item) do %>
               <%= image_tag cart_item.item.get_item_image(100,100) %>
+              <% end %>
             </td>
             <td>
-              <%= cart_item.item.name %>
+              <%= link_to cart_item.item.name, item_path(cart_item.item) %>
             </td>
             <td>
               <%= cart_item.item.price_tax_including %>
             </td>
             <td>
               <%= form_with model: cart_item do |f| %>
-                <%= f.select :amount, (1..10).to_a, include_blamk: cart_item.amount %>
+                <%= f.select :amount, (1..10).to_a, { selected: cart_item.amount } %>
                 <%= f.submit "変更" %>
               <% end %>
             </td>
@@ -51,15 +53,16 @@
             <% @billing_price += cart_item.item.price_tax_excluded * cart_item.amount %>
           </tr>
         <% end %>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <th>合計金額</th>
-            <td><%= @billing_price %></td>
-          </tr>
         </tbody>
         </table>
+    </div>
+    <div class="col-3">
+      <table class="table table-bordred border-back">
+        <tr>
+          <th>合計金額</th>
+          <td><%= @billing_price %></td>
+        </tr>
+      </table>
     </div>
   </div>
 

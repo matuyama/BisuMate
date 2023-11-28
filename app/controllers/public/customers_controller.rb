@@ -24,7 +24,7 @@ class Public::CustomersController < ApplicationController
 
   def quit
     customer = Customer.find(current_customer.id)
-    customer.update(is_acyive: false)
+    customer.update(is_active: false)
     reset_session
     redirect_to root_path
   end

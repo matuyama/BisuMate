@@ -58,6 +58,15 @@
               <%= f.label :is_on_sale, "販売停止中", {value: false} %>
             </th>
           </tr>
+          <tr>
+            <th><%= f.label :stock, "在庫数" %></th>
+            <th>
+              <div style="display: flex; align-item:center;">
+                <%= f.text_field :stock, class: "form-control" %>
+                <span class="ml-3">個</span>
+              </div>
+            </th>
+          </tr>
         </div>
       </table>
       <%= f.submit "変更を保存", class: "btn btn-success" %>

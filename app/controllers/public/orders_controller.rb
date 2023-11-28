@@ -35,7 +35,7 @@ class Public::OrdersController < ApplicationController
       cart_items.each do |cart_item|
         if cart_item.item.stock < cart_item.amount
           flash[:notice] = "在庫数を超えてしまっています"
-          redirect_to item_path(item_id) and return
+          redirect_to item_path(cart_item.item) and return
         end
         order_detail = OrderDetail.new
         order_detail.order_id = order.id
