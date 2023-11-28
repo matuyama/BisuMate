@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 3.times do |n|
-  email = "#{n + 1}@a"
+  email = "test#{n + 1}@a"
   Customer.find_or_create_by!(email: email) do |customer|
     customer.last_name = "山田#{n + 1}"
     customer.first_name = "太郎#{n + 1}"
@@ -20,7 +20,7 @@
   end
 end
 
-Admin.find_or_create_by!(email: "a@a") do |admin|
+Admin.find_or_create_by!(email: "admin@admin") do |admin|
   admin.password = "123456"
 end
 
@@ -39,7 +39,7 @@ Item.find_or_create_by!(name: "SUS六角ボルト4X8(1パック70個)") do |item
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 4
   item.size_length = 8
-  item.price_tax_excluded = 900
+  item.price_tax_excluded = 400
   item.is_on_sale = true
   item.stock = 100
 end
@@ -49,7 +49,7 @@ Item.find_or_create_by!(name: "SUS六角ボルト5X8(1パック70個)") do |item
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 5
   item.size_length = 8
-  item.price_tax_excluded = 900
+  item.price_tax_excluded = 500
   item.is_on_sale = true
   item.stock = 100
 end
@@ -59,7 +59,7 @@ Item.find_or_create_by!(name: "SUS六角ボルト6X8(1パック70個)") do |item
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 6
   item.size_length = 8
-  item.price_tax_excluded = 900
+  item.price_tax_excluded = 600
   item.is_on_sale = true
   item.stock = 100
 end
@@ -69,7 +69,7 @@ Item.find_or_create_by!(name: "SUS六角ボルト4X12(1パック70個)") do |ite
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 4
   item.size_length = 12
-  item.price_tax_excluded = 900
+  item.price_tax_excluded = 500
   item.is_on_sale = true
   item.stock = 100
 end
@@ -79,7 +79,7 @@ Item.find_or_create_by!(name: "SUS六角ボルト5X12(1パック70個)") do |ite
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 5
   item.size_length = 12
-  item.price_tax_excluded = 900
+  item.price_tax_excluded = 600
   item.is_on_sale = true
   item.stock = 100
 end
@@ -89,7 +89,7 @@ Item.find_or_create_by!(name: "SUS六角ボルト6X12(1パック70個)") do |ite
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 6
   item.size_length = 12
-  item.price_tax_excluded = 900
+  item.price_tax_excluded = 700
   item.is_on_sale = true
   item.stock = 100
 end
