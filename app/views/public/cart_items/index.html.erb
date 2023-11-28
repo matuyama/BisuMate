@@ -13,7 +13,7 @@
   </div>
 
   <div class="row">
-    <div class="col-9">
+    <div class="col">
       <table class="table table-bordred border-back">
         <thead>
           <tr>
@@ -50,18 +50,19 @@
             <td>
               <%= button_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-danger" %>
             </td>
-            <% @billing_price += cart_item.item.price_tax_excluded * cart_item.amount %>
+            <% @billing_price += cart_item.subtotal %>
           </tr>
         <% end %>
+          <tr>
+            <% if @cart_items.any? %>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th>合計金額</th>
+              <td><%= @billing_price %></td>
+            <% end %>
+          </tr>
         </tbody>
-        </table>
-    </div>
-    <div class="col-3">
-      <table class="table table-bordred border-back">
-        <tr>
-          <th>合計金額</th>
-          <td><%= @billing_price %></td>
-        </tr>
       </table>
     </div>
   </div>
