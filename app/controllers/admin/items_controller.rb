@@ -22,10 +22,12 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @genres = @item.genres.pluck(:name).join(',')
   end
 
   def edit
     @item = Item.find(params[:id])
+    @genres = @item.genres.pluck(:name).join(',')
   end
 
   def add_stock
@@ -41,7 +43,7 @@ class Admin::ItemsController < ApplicationController
 
   def update
     item = Item.find(params[:id])
-    genres = params[:item][:genre_id].split(',')
+    genres = params[:item][:genre_name].split(',')
     if item.update(item_params)
       item.update_genres(genres)
       redirect_to admin_item_path(item)

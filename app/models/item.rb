@@ -46,7 +46,7 @@ class Item < ApplicationRecord
       end
 
       new_genres.each do |new_genre|
-        self.genre.find_or_dreate_by(name: new_genre)
+        self.genres.find_or_create_by(name: new_genre)
       end
     end
   end
