@@ -1,7 +1,6 @@
 class Item < ApplicationRecord
 
     with_options presence: do
-    validates :genre_id
     validates :name
     validates :description
     validates :size_sutra
@@ -11,11 +10,46 @@ class Item < ApplicationRecord
     validates :is_on_sale
   end
 
-  belongs_to :genre
+  has_many :genre_relations, dependent: :destroy
+  has_many :genres, through: :genre_relations
   has_many :cart_items, dependent: :destroy
   has_one_attached :item_image
 
   enum is_on_sale: { on_sale:true, sales_stop: false}
+
+
+  # タグ付けの新規投稿用メソッド
+  def save_genres(genres)
+    genres.each do |new_genres|
+      self.genres.find_or_create_by(name: new_genres)
+    end
+  end
+
+  # タグ付けの更新用メソッド
+  def update_genres(latest_genres)
+    if self.genres.empty?
+      latest_genres.each do |latest_genre|
+        self.genres.find_or_create_by(name: latest_genre)
+      end
+    elsif latest_genres.empty?
+      self.genres.each do |genre|
+        self.genres.delete(genre)
+      end
+    else
+      current_genres = self.genres.pluck(:name)
+      old_genres = current_genres - latest_genres
+      new_genres = latest_genres - current_genres
+
+      old_genres.each do |old_genre|
+        genre = self.genre.find_by(name: old_genre)
+        self.genres.delete(genre) if genre.present?
+      end
+
+      new_genres.each do |new_genre|
+        self.genre.find_or_dreate_by(name: new_genre)
+      end
+    end
+  end
 
   # フィルターでの分岐
   def self.filtering(genre_id, select, item)

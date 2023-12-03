@@ -9,7 +9,6 @@
             <th>商品ID</th>
             <th>商品名</th>
             <th>税抜価格</th>
-            <th>ジャンル</th>
             <th>ステータス</th>
             <th>在庫数</th>
           </tr>
@@ -20,7 +19,6 @@
             <td><%= item.id %></td>
             <td><%= link_to item.name, admin_item_path(item) %></td>
             <td><%= item.price_tax_excluded %></td>
-            <td><%= item.genre.name %></td>
             <td><%= render "is_on_sale", item: item %></td>
             <td><%= item.stock.to_s(:delimited) %></td>
           </tr>

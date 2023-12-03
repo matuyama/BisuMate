@@ -10,7 +10,9 @@ class Admin::ItemsController < ApplicationController
 
   def create
     item = Item.new(item_params)
+    genres = params[:item][:genre_name].split(',')
     if item.save
+      item.save_genres(genres)
       redirect_to admin_item_path(item)
     else
       flash[:notice] = "保存に失敗しました"
@@ -39,7 +41,9 @@ class Admin::ItemsController < ApplicationController
 
   def update
     item = Item.find(params[:id])
+    genres = params[:item][:genre_id].split(',')
     if item.update(item_params)
+      item.update_genres(genres)
       redirect_to admin_item_path(item)
     else
       flash[:notice] = "保存に失敗しました"
@@ -50,7 +54,7 @@ class Admin::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:genre_id, :name, :description, :size_sutra, :size_length, :price_tax_excluded, :stock, :is_on_sale, :item_image)
+    params.require(:item).permit(:name, :description, :size_sutra, :size_length, :price_tax_excluded, :stock, :is_on_sale, :item_image)
   end
 
 end

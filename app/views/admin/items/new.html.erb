@@ -17,9 +17,9 @@
             <th><%= f.text_area :description, class: "form-control", size: "50x4" %></th>
           </tr>
           <tr>
-            <th><%= f.label :genre_id, "ジャンル" %></th>
+            <th><%= f.label :genre_name, "ジャンル" %></th>
             <th>
-              <%= f.select :genre_id, Genre.all.map{|genre| [genre.name, genre.id]} %>
+              <%= f.text_field :genre_name, class: "form-control" %>
             </th>
           </tr>
           <tr>

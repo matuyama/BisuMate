@@ -35,7 +35,6 @@ end
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト4X8(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 4
   item.size_length = 8
@@ -45,7 +44,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト4X8(1パック70個)") do |item
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト5X8(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 5
   item.size_length = 8
@@ -55,7 +53,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト5X8(1パック70個)") do |item
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト6X8(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 6
   item.size_length = 8
@@ -65,7 +62,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト6X8(1パック70個)") do |item
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト4X12(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 4
   item.size_length = 12
@@ -75,7 +71,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト4X12(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト5X12(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 5
   item.size_length = 12
@@ -85,7 +80,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト5X12(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト6X12(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 6
   item.size_length = 12
@@ -95,7 +89,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト6X12(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト4X25(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 4
   item.size_length = 25
@@ -105,7 +98,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト4X25(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト5X25(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 5
   item.size_length = 25
@@ -115,7 +107,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト5X25(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト6X25(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角・十字穴付き"
   item.size_sutra = 6
   item.size_length = 25
@@ -126,7 +117,6 @@ end
 
 
 Item.find_or_create_by!(name: "SUS六角ボルト4X30(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角"
   item.size_sutra = 4
   item.size_length = 30
@@ -136,7 +126,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト4X30(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト5X30(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角"
   item.size_sutra = 5
   item.size_length = 30
@@ -146,7 +135,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト5X30(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト6X30(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角"
   item.size_sutra = 6
   item.size_length = 30
@@ -156,7 +144,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト6X30(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト4X40(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角"
   item.size_sutra = 4
   item.size_length = 40
@@ -166,7 +153,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト4X40(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト5X40(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角"
   item.size_sutra = 5
   item.size_length = 40
@@ -176,7 +162,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト5X40(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUS六角ボルト6X40(1パック70個)") do |item|
-  item.genre_id = 1
   item.description = "ステンレスSUS304・六角"
   item.size_sutra = 6
   item.size_length = 40
@@ -186,7 +171,6 @@ Item.find_or_create_by!(name: "SUS六角ボルト6X40(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ4X8(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ・十字穴"
   item.size_sutra = 4
   item.size_length = 8
@@ -196,7 +180,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ4X8(1パック70個)") do |item
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ5X8(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ・十字穴"
   item.size_sutra = 5
   item.size_length = 8
@@ -206,7 +189,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ5X8(1パック70個)") do |item
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ6X8(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ・十字穴"
   item.size_sutra = 6
   item.size_length = 8
@@ -216,7 +198,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ6X8(1パック70個)") do |item
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ4X12(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ・十字穴"
   item.size_sutra = 4
   item.size_length = 12
@@ -226,7 +207,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ4X12(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ5X12(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ・十字穴"
   item.size_sutra = 5
   item.size_length = 12
@@ -236,7 +216,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ5X12(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ6X12(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ・十字穴"
   item.size_sutra = 6
   item.size_length = 12
@@ -246,7 +225,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ6X12(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ4X25(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ・十字穴"
   item.size_sutra = 4
   item.size_length = 25
@@ -256,7 +234,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ4X25(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ5X25(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ・十字穴"
   item.size_sutra = 5
   item.size_length = 25
@@ -266,7 +243,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ5X25(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ6X25(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ・十字穴"
   item.size_sutra = 6
   item.size_length = 25
@@ -276,7 +252,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ6X25(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ4X30(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ・十字穴"
   item.size_sutra = 4
   item.size_length = 30
@@ -286,7 +261,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ4X30(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ5X30(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ・十字穴"
   item.size_sutra = 5
   item.size_length = 30
@@ -296,7 +270,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ5X30(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ6X30(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ・十字穴"
   item.size_sutra = 6
   item.size_length = 30
@@ -306,7 +279,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ6X30(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ4X40(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ"
   item.size_sutra = 4
   item.size_length = 40
@@ -316,7 +288,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ4X40(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ5X40(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ"
   item.size_sutra = 5
   item.size_length = 40
@@ -326,7 +297,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ5X40(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUSなべ小ねじ6X40(1パック70個)") do |item|
-  item.genre_id = 2
   item.description = "ステンレスSUS304・小ねじ"
   item.size_sutra = 6
   item.size_length = 40
@@ -336,7 +306,6 @@ Item.find_or_create_by!(name: "SUSなべ小ねじ6X40(1パック70個)") do |ite
 end
 
 Item.find_or_create_by!(name: "SUS六角ナットM4(1パック70個)") do |item|
-  item.genre_id = 3
   item.description = "ステンレスSUS304・六角ナット2種"
   item.size_sutra = 4
   item.size_length = 0
@@ -346,7 +315,6 @@ Item.find_or_create_by!(name: "SUS六角ナットM4(1パック70個)") do |item|
 end
 
 Item.find_or_create_by!(name: "SUS六角ナットM5(1パック70個)") do |item|
-  item.genre_id = 3
   item.description = "ステンレスSUS304・六角ナット2種"
   item.size_sutra = 5
   item.size_length = 0
@@ -356,7 +324,6 @@ Item.find_or_create_by!(name: "SUS六角ナットM5(1パック70個)") do |item|
 end
 
 Item.find_or_create_by!(name: "SUS六角ナットM6(1パック70個)") do |item|
-  item.genre_id = 3
   item.description = "ステンレスSUS304・六角ナット2種"
   item.size_sutra = 6
   item.size_length = 0
@@ -366,7 +333,6 @@ Item.find_or_create_by!(name: "SUS六角ナットM6(1パック70個)") do |item|
 end
 
 Item.find_or_create_by!(name: "SUS平ワッシャーM4 (4.5X10X1.0)(1パック70個)") do |item|
-  item.genre_id = 4
   item.description = "ステンレスSUS304・平ワッシャー"
   item.size_sutra = 4
   item.size_length = 0
@@ -376,7 +342,6 @@ Item.find_or_create_by!(name: "SUS平ワッシャーM4 (4.5X10X1.0)(1パック70
 end
 
 Item.find_or_create_by!(name: "SUS平ワッシャーM5 (5.5X10X1.0)(1パック70個)") do |item|
-  item.genre_id = 4
   item.description = "ステンレスSUS304・平ワッシャー"
   item.size_sutra = 5
   item.size_length = 0
@@ -386,7 +351,6 @@ Item.find_or_create_by!(name: "SUS平ワッシャーM5 (5.5X10X1.0)(1パック70
 end
 
 Item.find_or_create_by!(name: "SUS平ワッシャーM6 (6.5X10X1.0)(1パック70個)") do |item|
-  item.genre_id = 4
   item.description = "ステンレスSUS304・平ワッシャー"
   item.size_sutra = 6
   item.size_length = 0
@@ -396,7 +360,6 @@ Item.find_or_create_by!(name: "SUS平ワッシャーM6 (6.5X10X1.0)(1パック70
 end
 
 Item.find_or_create_by!(name: "SUS蝶番 4mmビス対応 (2個セット)") do |item|
-  item.genre_id = 5
   item.description = "ステンレスSUS304 ・2個セット"
   item.size_sutra = 4
   item.size_length = 0
@@ -406,7 +369,6 @@ Item.find_or_create_by!(name: "SUS蝶番 4mmビス対応 (2個セット)") do |i
 end
 
 Item.find_or_create_by!(name: "SUS蝶番 5mmビス対応 (2個セット)") do |item|
-  item.genre_id = 5
   item.description = "ステンレスSUS304 ・2個セット"
   item.size_sutra = 5
   item.size_length = 0
@@ -416,7 +378,6 @@ Item.find_or_create_by!(name: "SUS蝶番 5mmビス対応 (2個セット)") do |i
 end
 
 Item.find_or_create_by!(name: "SUS蝶番 6mmビス対応 (2個セット)") do |item|
-  item.genre_id = 5
   item.description = "ステンレスSUS304 ・2個セット"
   item.size_sutra = 6
   item.size_length = 0
