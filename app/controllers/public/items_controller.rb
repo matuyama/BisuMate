@@ -17,8 +17,6 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    # byebug
-    # @itemFiltering = Item.find(params[:id])
     @items = Item.filtering(params[:genre_id], params[:select], @item).page(params[:page]).per(4)
     @cart_item = CartItem.new
   end

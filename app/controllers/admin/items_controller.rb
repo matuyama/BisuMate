@@ -10,20 +10,22 @@ class Admin::ItemsController < ApplicationController
 
   def create
     item = Item.new(item_params)
-    genres = params[:item][:genre_name].split(',')
-    if item_params[:item_image].present?
-      labels = Vision.get_image_data(item_params[:item_image])
-      japanese_labels = Translation.translate_to_japanese(labels)
-      japanese_labels.each do |label|
-      item.genres.build(name: label)
-      end
-    end
     if item.save
-      item.save_genres(genres)
+      genre_names = params[:item][:genre_names].split(',')
+      if item_params[:item_image].present?
+        labels = Vision.get_image_data(item_params[:item_image])
+        japanese_labels = Translation.translate_to_japanese(labels)
+        genre_names += japanese_labels
+        # japanese_labels.each do |label|
+        #   item.genres.build(name: label)
+        # end
+      end
+      genre_names.uniq!
+      item.save_genres(genre_names)
       redirect_to admin_item_path(item)
     else
       flash[:notice] = "保存に失敗しました"
-      redirect_to new_admin_item_path
+      render :new
     end
   end
 
@@ -50,8 +52,8 @@ class Admin::ItemsController < ApplicationController
 
   def update
     item = Item.find(params[:id])
-    genres = params[:item][:genre_name].split(',')
     if item.update(item_params)
+      genres = params[:item][:genre_name].split(',')
       item.update_genres(genres)
       redirect_to admin_item_path(item)
     else

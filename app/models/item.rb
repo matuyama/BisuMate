@@ -19,8 +19,8 @@ class Item < ApplicationRecord
 
 
   # タグ付けの新規投稿用メソッド
-  def save_genres(genres)
-    genres.each do |new_genres|
+  def save_genres(genre_names)
+    genre_names.each do |new_genres|
       self.genres.find_or_create_by(name: new_genres)
     end
   end
@@ -41,7 +41,7 @@ class Item < ApplicationRecord
       new_genres = latest_genres - current_genres
 
       old_genres.each do |old_genre|
-        genre = self.genre.find_by(name: old_genre)
+        genre = self.genres.find_by(name: old_genre)
         self.genres.delete(genre) if genre.present?
       end
 
