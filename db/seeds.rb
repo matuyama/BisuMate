@@ -30,358 +30,75 @@ end
   end
 end
 
-["ボルト", "ねじ", "ナット", "ワッシャー", "その他"].each do |name|
+genres = ["ボルト", "小ねじ", "ナット", "ワッシャー", "蝶番"].map do |name|
   Genre.find_or_create_by!(name: name)
 end
 
-Item.find_or_create_by!(name: "SUS六角ボルト4X8(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角・十字穴付き"
-  item.size_sutra = 4
-  item.size_length = 8
-  item.price_tax_excluded = 400
-  item.is_on_sale = true
-  item.stock = 100
-end
+item_data = [
+  ["SUS六角ボルト4X8(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 4, 8, 400, true, 10],
+  ["SUS六角ボルト5X8(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 5, 8, 500, true, 10],
+  ["SUS六角ボルト6X8(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 6, 8, 600, true, 10],
 
-Item.find_or_create_by!(name: "SUS六角ボルト5X8(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角・十字穴付き"
-  item.size_sutra = 5
-  item.size_length = 8
-  item.price_tax_excluded = 500
-  item.is_on_sale = true
-  item.stock = 100
-end
+  ["SUS六角ボルト4X12(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 4, 12, 500, true, 10],
+  ["SUS六角ボルト5X12(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 5, 12, 600, true, 10],
+  ["SUS六角ボルト6X12(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 6, 12, 700, true, 10],
 
-Item.find_or_create_by!(name: "SUS六角ボルト6X8(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角・十字穴付き"
-  item.size_sutra = 6
-  item.size_length = 8
-  item.price_tax_excluded = 600
-  item.is_on_sale = true
-  item.stock = 100
-end
+  ["SUS六角ボルト4X25(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 4, 25, 600, true, 10],
+  ["SUS六角ボルト5X25(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 5, 25, 700, true, 10],
+  ["SUS六角ボルト6X25(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 6, 25, 800, true, 10],
 
-Item.find_or_create_by!(name: "SUS六角ボルト4X12(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角・十字穴付き"
-  item.size_sutra = 4
-  item.size_length = 12
-  item.price_tax_excluded = 500
-  item.is_on_sale = true
-  item.stock = 100
-end
+  ["SUS六角ボルト4X30(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 4, 30, 700, true, 10],
+  ["SUS六角ボルト5X30(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 5, 30, 800, true, 10],
+  ["SUS六角ボルト6X30(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 6, 30, 900, true, 10],
 
-Item.find_or_create_by!(name: "SUS六角ボルト5X12(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角・十字穴付き"
-  item.size_sutra = 5
-  item.size_length = 12
-  item.price_tax_excluded = 600
-  item.is_on_sale = true
-  item.stock = 100
-end
+  ["SUS六角ボルト4X40(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 4, 40, 800, true, 10],
+  ["SUS六角ボルト5X40(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 5, 40, 900, true, 10],
+  ["SUS六角ボルト6X40(1パック70個)", "ボルト", "ステンレスSUS304・六角・十字穴付き", 6, 40, 1000, true, 10],
 
-Item.find_or_create_by!(name: "SUS六角ボルト6X12(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角・十字穴付き"
-  item.size_sutra = 6
-  item.size_length = 12
-  item.price_tax_excluded = 700
-  item.is_on_sale = true
-  item.stock = 100
-end
+  ["SUSなべ小ねじ4X8(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 4, 8, 400, true, 10],
+  ["SUSなべ小ねじ5X8(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 5, 8, 500, true, 10],
+  ["SUSなべ小ねじ6X8(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 6, 8, 600, true, 10],
 
-Item.find_or_create_by!(name: "SUS六角ボルト4X25(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角・十字穴付き"
-  item.size_sutra = 4
-  item.size_length = 25
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
+  ["SUSなべ小ねじ4X12(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 4, 12, 500, true, 10],
+  ["SUSなべ小ねじ5X12(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 5, 12, 600, true, 10],
+  ["SUSなべ小ねじ6X12(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 6, 12, 700, true, 10],
 
-Item.find_or_create_by!(name: "SUS六角ボルト5X25(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角・十字穴付き"
-  item.size_sutra = 5
-  item.size_length = 25
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
+  ["SUSなべ小ねじ4X25(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 4, 25, 600, true, 10],
+  ["SUSなべ小ねじ5X25(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 5, 25, 700, true, 10],
+  ["SUSなべ小ねじ6X25(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 6, 25, 800, true, 10],
 
-Item.find_or_create_by!(name: "SUS六角ボルト6X25(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角・十字穴付き"
-  item.size_sutra = 6
-  item.size_length = 25
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
+  ["SUSなべ小ねじ4X30(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 4, 30, 700, true, 10],
+  ["SUSなべ小ねじ5X30(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 5, 30, 800, true, 10],
+  ["SUSなべ小ねじ6X30(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 6, 30, 900, true, 10],
 
+  ["SUSなべ小ねじ4X40(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 4, 40, 800, true, 10],
+  ["SUSなべ小ねじ5X40(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 5, 40, 900, true, 10],
+  ["SUSなべ小ねじ6X40(1パック70個)", "小ねじ", "ステンレスSUS304・小ねじ・十字穴", 6, 40, 1000, true, 10],
 
-Item.find_or_create_by!(name: "SUS六角ボルト4X30(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角"
-  item.size_sutra = 4
-  item.size_length = 30
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
+  ["SUS六角ナットM4(1パック70個)", "ナット", "ステンレスSUS304・六角ナット2種", 4, 0, 400, true, 10],
+  ["SUS六角ナットM5(1パック70個)", "ナット", "ステンレスSUS304・六角ナット2種", 5, 0, 500, true, 10],
+  ["SUS六角ナットM6(1パック70個)", "ナット", "ステンレスSUS304・六角ナット2種", 6, 0, 600, true, 10],
 
-Item.find_or_create_by!(name: "SUS六角ボルト5X30(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角"
-  item.size_sutra = 5
-  item.size_length = 30
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
+  ["SUS平ワッシャーM4 (4.5X10X1.0)(1パック70個)", "ワッシャー", "ステンレスSUS304・平ワッシャー", 4, 0, 400, true, 10],
+  ["SUS平ワッシャーM5 (5.5X10X1.0)(1パック70個)", "ワッシャー", "ステンレスSUS304・平ワッシャー", 5, 0, 500, true, 10],
+  ["SUS平ワッシャーM6 (6.5X10X1.0)(1パック70個)", "ワッシャー", "ステンレスSUS304・平ワッシャー", 6, 0, 600, true, 10],
 
-Item.find_or_create_by!(name: "SUS六角ボルト6X30(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角"
-  item.size_sutra = 6
-  item.size_length = 30
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
+  ["SUS蝶番 4mmビス対応 (2個セット)", "蝶番", "ステンレスSUS304 ・2個セット", 4, 0, 600, true, 10],
+  ["SUS蝶番 5mmビス対応 (2個セット)", "蝶番", "ステンレスSUS304 ・2個セット", 5, 0, 700, true, 10],
+  ["SUS蝶番 6mmビス対応 (2個セット)", "蝶番", "ステンレスSUS304 ・2個セット", 6, 0, 800, true, 10],
 
-Item.find_or_create_by!(name: "SUS六角ボルト4X40(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角"
-  item.size_sutra = 4
-  item.size_length = 40
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
+]
 
-Item.find_or_create_by!(name: "SUS六角ボルト5X40(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角"
-  item.size_sutra = 5
-  item.size_length = 40
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
+item_data.each do |name, genre_name, description, sutra, length, price, sale, stock|
+  item = Item.find_or_create_by!(name: name) do |i|
+    i.description = description
+    i.size_sutra = sutra
+    i.size_length = length
+    i.price_tax_excluded = price
+    i.is_on_sale = sale
+    i.stock = stock
+  end
 
-Item.find_or_create_by!(name: "SUS六角ボルト6X40(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角"
-  item.size_sutra = 6
-  item.size_length = 40
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ4X8(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ・十字穴"
-  item.size_sutra = 4
-  item.size_length = 8
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ5X8(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ・十字穴"
-  item.size_sutra = 5
-  item.size_length = 8
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ6X8(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ・十字穴"
-  item.size_sutra = 6
-  item.size_length = 8
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ4X12(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ・十字穴"
-  item.size_sutra = 4
-  item.size_length = 12
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ5X12(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ・十字穴"
-  item.size_sutra = 5
-  item.size_length = 12
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ6X12(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ・十字穴"
-  item.size_sutra = 6
-  item.size_length = 12
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ4X25(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ・十字穴"
-  item.size_sutra = 4
-  item.size_length = 25
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ5X25(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ・十字穴"
-  item.size_sutra = 5
-  item.size_length = 25
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ6X25(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ・十字穴"
-  item.size_sutra = 6
-  item.size_length = 25
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ4X30(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ・十字穴"
-  item.size_sutra = 4
-  item.size_length = 30
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ5X30(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ・十字穴"
-  item.size_sutra = 5
-  item.size_length = 30
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ6X30(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ・十字穴"
-  item.size_sutra = 6
-  item.size_length = 30
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ4X40(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ"
-  item.size_sutra = 4
-  item.size_length = 40
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ5X40(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ"
-  item.size_sutra = 5
-  item.size_length = 40
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUSなべ小ねじ6X40(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・小ねじ"
-  item.size_sutra = 6
-  item.size_length = 40
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUS六角ナットM4(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角ナット2種"
-  item.size_sutra = 4
-  item.size_length = 0
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUS六角ナットM5(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角ナット2種"
-  item.size_sutra = 5
-  item.size_length = 0
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUS六角ナットM6(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・六角ナット2種"
-  item.size_sutra = 6
-  item.size_length = 0
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUS平ワッシャーM4 (4.5X10X1.0)(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・平ワッシャー"
-  item.size_sutra = 4
-  item.size_length = 0
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUS平ワッシャーM5 (5.5X10X1.0)(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・平ワッシャー"
-  item.size_sutra = 5
-  item.size_length = 0
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUS平ワッシャーM6 (6.5X10X1.0)(1パック70個)") do |item|
-  item.description = "ステンレスSUS304・平ワッシャー"
-  item.size_sutra = 6
-  item.size_length = 0
-  item.price_tax_excluded = 900
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUS蝶番 4mmビス対応 (2個セット)") do |item|
-  item.description = "ステンレスSUS304 ・2個セット"
-  item.size_sutra = 4
-  item.size_length = 0
-  item.price_tax_excluded = 600
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUS蝶番 5mmビス対応 (2個セット)") do |item|
-  item.description = "ステンレスSUS304 ・2個セット"
-  item.size_sutra = 5
-  item.size_length = 0
-  item.price_tax_excluded = 600
-  item.is_on_sale = true
-  item.stock = 100
-end
-
-Item.find_or_create_by!(name: "SUS蝶番 6mmビス対応 (2個セット)") do |item|
-  item.description = "ステンレスSUS304 ・2個セット"
-  item.size_sutra = 6
-  item.size_length = 0
-  item.price_tax_excluded = 600
-  item.is_on_sale = true
-  item.stock = 100
+  genre = genres.find { |g| g.name == genre_name }
+  item.genres << genre unless item.genres.include?(genre)
 end

@@ -11,6 +11,13 @@ class Admin::ItemsController < ApplicationController
   def create
     item = Item.new(item_params)
     genres = params[:item][:genre_name].split(',')
+    if item_params[:item_image].present?
+      labels = Vision.get_image_data(item_params[:item_image])
+      japanese_labels = Translation.translate_to_japanese(labels)
+      japanese_labels.each do |label|
+      item.genres.build(name: label)
+      end
+    end
     if item.save
       item.save_genres(genres)
       redirect_to admin_item_path(item)

@@ -55,12 +55,12 @@ class Item < ApplicationRecord
   def self.filtering(genre_id, select, item)
     if genre_id.present? && select.present?
       if select == "size_sutra"
-        where(genre_id: genre_id, size_sutra: item.size_sutra)
+        joins(:genres).where(genres: { id: genre_id }, size_sutra: item.size_sutra)
       elsif select == "size_length"
-        where(genre_id: genre_id, size_length: item.size_length)
+        joins(:genres).where(genres: { id: genre_id }, size_length: item.size_length)
       end
     else
-      where(genre_id: item.genre.id, size_sutra: item.size_sutra)
+      joins(:genres).where(genres: { id: item.genres }, size_sutra: item.size_sutra)
     end
   end
 

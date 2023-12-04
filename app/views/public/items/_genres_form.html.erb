@@ -1,0 +1,12 @@
+<%= form_with url: items_path, local: true, method: :get do |f| %>
+  <span>タグ</span>
+  <div class="d-flex flex-column align-items-start">
+  <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) do |b| %>
+    <div>
+    <%= b.check_box %>
+    <%= b.label %>
+    </div>
+  <% end %>
+  </div>
+  <%= f.submit "タグ検索", class: "btn btn-primary btn-sm" %>
+<% end %>
