@@ -11,16 +11,14 @@ class Admin::ItemsController < ApplicationController
   def create
     item = Item.new(item_params)
     if item.save
-      genre_names = params[:item][:genre_names].split(',')
       if item_params[:item_image].present?
-        labels = Vision.get_image_data(item_params[:item_image])
+        labels = Vision.get_image_data(item.item_image.blob.download)
         japanese_labels = Translation.translate_to_japanese(labels)
-        genre_names += japanese_labels
-        # japanese_labels.each do |label|
-        #   item.genres.build(name: label)
-        # end
+        japanese_labels.each do |label|
+          item.genres.create(name: label)
+        end
       end
-      genre_names.uniq!
+      genre_names = params[:item][:genre_names].split(',')
       item.save_genres(genre_names)
       redirect_to admin_item_path(item)
     else
