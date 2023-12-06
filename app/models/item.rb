@@ -21,7 +21,8 @@ class Item < ApplicationRecord
   # タグ付けの新規投稿用メソッド
   def save_genres(genre_names)
     genre_names.each do |new_genres|
-      self.genres.find_or_create_by(name: new_genres)
+      genre = Genre.find_or_create_by(name: new_genres)
+      GenreRelation.create(item_id: self.id, genre_id: genre.id)
     end
   end
 

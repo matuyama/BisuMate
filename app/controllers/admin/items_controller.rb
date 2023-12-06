@@ -9,17 +9,15 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
+    genre_names = params[:item].delete(:genre_names).split(',')
     item = Item.new(item_params)
-    item_image = item_params[:item_image]
-    labels = Vision.get_image_data(item_image)
-    japanese_labels = Translation.translate_to_japanese(labels)
+    if item_params[:item_image].present?
+      labels = Vision.get_image_data(item_params[:item_image])
+      japanese_labels = Translation.translate_to_japanese(labels)
+      genre_names += japanese_labels
+    end
+    genre_names.uniq!
     if item.save
-      if item_image.present?
-        japanese_labels.each do |label|
-          item.genres.create(name: label)
-        end
-      end
-      genre_names = params[:item][:genre_names].split(',')
       item.save_genres(genre_names)
       redirect_to admin_item_path(item)
     else
