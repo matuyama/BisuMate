@@ -30,7 +30,8 @@ class Item < ApplicationRecord
   def update_genres(latest_genres)
     if self.genres.empty?
       latest_genres.each do |latest_genre|
-        self.genres.find_or_create_by(name: latest_genre)
+        genre = Genre.find_or_create_by(name: latest_genre)
+        GenreRelation.create(item_id: self.id, genre_id: genre.id)
       end
     elsif latest_genres.empty?
       self.genres.each do |genre|
@@ -47,7 +48,8 @@ class Item < ApplicationRecord
       end
 
       new_genres.each do |new_genre|
-        self.genres.find_or_create_by(name: new_genre)
+        genre = Genre.find_or_create_by(name: new_genre)
+        GenreRelation.create(item_id: self.id, genre_id: genre.id)
       end
     end
   end
